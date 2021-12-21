@@ -2,11 +2,11 @@ import React from 'react';
 import '../App.css';
 
 function Projects(props) {
-    const {project} = props;
+    const {projects} = props;
     return (
-        <div className="images">
-            {project.map((prj, i) => (
-                <img key={i} src={prj.img} alt={prj.category} />
+        <div className="portfolio">
+            {projects.map((project, i) => (
+                <img key={i} src={project.img} alt={project.category} />
             ))}
         </div>
     );

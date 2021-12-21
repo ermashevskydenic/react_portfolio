@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import Projects from "./Projects";
 import Toolbar from "./Toolbar";
-import images from '../data/images';
+import projects from '../data/projects';
 
 
 function Portfolio() {
 
         const [activeFilter, setActiveFilter] = useState(null);
-        const [activeImages, setActiveImages] = useState(images);
-        const categories = Array.from(new Set(images.map(image => image.category)))
-
+        const [activeProjects, setActiveProjects] = useState(projects);
+        const categories = Array.from(new Set(projects.map(project => project.category)))
+        console.log(activeProjects);
         return(
             <div>
                 <Toolbar
@@ -17,7 +17,7 @@ function Portfolio() {
                     selected={activeFilter}
                     onSelectFilter={(filter) => {setActiveFilter(filter)}}
                 />
-                <Projects project={activeImages} />
+                <Projects projects={activeFilter === 'All' ? activeProjects : activeProjects.filter(el => el.category === activeFilter)} />
             </div>
         );
 }
