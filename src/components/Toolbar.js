@@ -1,14 +1,15 @@
 import React from 'react';
 import '../App.css';
+import { shortid } from 'shortid';
 
 function Toolbar(props) {
     const {filters, selected, onSelectFilter} = props;
 
     return (
         <div className="toolbar">
-            {filters.map((filter, index) => (
+            {filters.map((filter) => (
                 <button
-                    key={index}
+                    key={shortid.generate()}
                     onClick={() => onSelectFilter(filter)}
                     className={selected === filter ? 'filter-selected' : 'filter'}
                 >
