@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.css';
 import { shortid } from 'shortid';
+import PropTypes from "prop-types";
 
-function Toolbar(props) {
-    const {filters, selected, onSelectFilter} = props;
+function Toolbar({filters, selected, onSelectFilter}) {
 
     return (
         <div className="toolbar">
@@ -19,5 +19,15 @@ function Toolbar(props) {
         </div>
     );
 }
+Toolbar.propTypes = {
+    filters: PropTypes.array,
+    onSelectFilter: PropTypes.func,
+    selected: PropTypes.string
+};
 
+Toolbar.defaultProps = {
+    filters: ["All", "Websites", "Flayers", "Business Cards"],
+    selected: "All",
+    onSelectFilter: () => {}
+};
 export default Toolbar;
